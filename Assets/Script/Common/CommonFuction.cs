@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class CommonFuction : MonoBehaviour
+public class CommonFuction
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    // Animator
+    public static void SetBool(Animator ani, string name, bool value)
     {
-        
+        if (ani == null)
+            return;
+
+        ani.SetBool(name, value);
     }
 }

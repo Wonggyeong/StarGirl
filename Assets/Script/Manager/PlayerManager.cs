@@ -17,12 +17,16 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void Update()
     {
-        
+        move.Jump();
+        move.StopWalkSpeed();
+        move.DirectionSprite();
+        move.WalkAni();
     }
 
     private void FixedUpdate()
     {
         move.Walk();
+        move.LandingPlatform();
     }
 
 
