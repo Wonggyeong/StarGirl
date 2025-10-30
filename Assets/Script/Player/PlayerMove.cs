@@ -5,7 +5,7 @@ public class PlayerMove : MonoBehaviour
 {
     // TODO : NULL체크
     // Die, 데미지 받았을 때, 무한점프 막기,
-    [SerializeField] private Rigidbody2D m_Rigid;
+     public Rigidbody2D m_Rigid;
     [SerializeField] private Vector2 m_Position;
 
     [SerializeField] private SpriteRenderer m_SpriteRenderer;

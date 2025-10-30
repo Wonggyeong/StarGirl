@@ -4,10 +4,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
 
-    public Singleton()
-    {
-        Debug.Log($"Created {_instance} Manager");
-    }
+    //public Singleton()
+    //{
+    //    Debug.Log($"Created {_instance} Manager");
+    //}
 
     public static T Instance
     {
@@ -34,6 +34,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             _instance = this as T;
             DontDestroyOnLoad(gameObject);
+            Debug.Log($"Created {_instance} Manager");
         }
         else if (_instance != this)
         {
