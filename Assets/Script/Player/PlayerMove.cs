@@ -79,6 +79,26 @@ public class PlayerMove : MonoBehaviour
 
     #endregion
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {   // Attack
+            var enemyPosition = collision.transform.position;
+            if (m_Rigid.linearVelocity.y < 0 && this.transform.position.y > enemyPosition.y)
+            {
+                OnAttack(collision.transform);
+            }
+        }
+    }
+
+    private void OnAttack(Transform enemy)
+    {
+        // Enemy Die
+        //PlantFactory plantFactory = enemy.GetComponent<PlantFactory>();
+        //plantFactory.OnDamaged();
+    }
+
     // InputSystem
     public void OnWalk(InputAction.CallbackContext context)
     {

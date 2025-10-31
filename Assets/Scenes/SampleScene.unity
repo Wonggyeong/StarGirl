@@ -961,6 +961,67 @@ Transform:
   - {fileID: 312515738}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1315826355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315826362}
+  - component: {fileID: 1315826357}
+  - component: {fileID: 1315826356}
+  m_Layer: 0
+  m_Name: Plant Factory
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1315826356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315826355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6ad06c9d6ba6b4c89366e5aac95ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OriginPlantPrefab: {fileID: 1633394642}
+  spawnPoint: {fileID: 1315826362}
+--- !u!114 &1315826357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315826355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8f8b344707c2c48bce557d481bfeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantFactory: {fileID: 1315826356}
+  m_PlantCount: 3
+--- !u!4 &1315826362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315826355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: -0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633394642
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,11 +1035,9 @@ GameObject:
   - component: {fileID: 1633394646}
   - component: {fileID: 1633394645}
   - component: {fileID: 1633394649}
-  - component: {fileID: 1633394647}
-  - component: {fileID: 1633394648}
   m_Layer: 0
   m_Name: Plant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,34 +1180,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1633394647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633394642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e8f8b344707c2c48bce557d481bfeab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantFactory: {fileID: 1633394648}
---- !u!114 &1633394648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633394642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6ad06c9d6ba6b4c89366e5aac95ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 1633394646}
-  m_Rigid: {fileID: 1633394649}
-  m_PlayerMove: {fileID: 701971047}
 --- !u!50 &1633394649
 Rigidbody2D:
   serializedVersion: 5
@@ -1183,4 +1214,5 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 701971045}
   - {fileID: 1633394644}
+  - {fileID: 1315826362}
   - {fileID: 931497229}

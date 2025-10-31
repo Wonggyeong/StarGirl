@@ -9,24 +9,24 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void Awake()
     {
-        move = playerMove;
+        //move = playerMove;
 
-        if (move == null)
+        if (playerMove == null)
             Debug.Log("playerMove is NULL!!!!");
     }
 
     private void Update()
     {
-        move.Jump();
-        move.StopWalkSpeed();
-        move.DirectionSprite();
-        move.WalkAni();
+        playerMove.Jump();
+        playerMove.StopWalkSpeed();
+        playerMove.DirectionSprite();
+        playerMove.WalkAni();
     }
 
     private void FixedUpdate()
     {
-        move.Walk();
-        move.LandingPlatform();
+        playerMove.Walk();
+        playerMove.LandingPlatform();
     }
 
 
