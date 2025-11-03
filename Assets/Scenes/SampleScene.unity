@@ -1007,6 +1007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantFactory: {fileID: 1315826356}
   m_PlantCount: 3
+  _EnemyPlant: {fileID: 1633394650}
 --- !u!4 &1315826362
 Transform:
   m_ObjectHideFlags: 0
@@ -1035,6 +1036,7 @@ GameObject:
   - component: {fileID: 1633394646}
   - component: {fileID: 1633394645}
   - component: {fileID: 1633394649}
+  - component: {fileID: 1633394650}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Enemy
@@ -1207,6 +1209,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1633394650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633394642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d894fadef8b4d4ba5dbee452cc082e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Ani: {fileID: 1633394646}
+  m_Rigid: {fileID: 1633394649}
+  m_sprite: {fileID: 1633394643}
+  m_PlayerMove: {fileID: 701971047}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

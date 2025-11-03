@@ -9,7 +9,9 @@ public abstract class AbsEnemyFactory : MonoBehaviour
 
 public interface IEnemy
 {
-    void Attack();
+    void OnAttack();
+
+    void PlayerApprochSensor();
 }
 
 

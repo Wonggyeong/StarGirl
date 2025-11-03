@@ -32,7 +32,7 @@ public class PlayerMove : MonoBehaviour
         if (m_Rigid.linearVelocity.y < 0)
         {
             RaycastHit2D rayHit = Physics2D.Raycast(m_Rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
-            Debug.Log(rayHit.distance);
+            //Debug.Log(rayHit.distance); 공중높이
             if (rayHit.collider != null)
             {
                 if (rayHit.distance < 1f)
@@ -82,7 +82,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {   // Attack
             var enemyPosition = collision.transform.position;
             if (m_Rigid.linearVelocity.y < 0 && this.transform.position.y > enemyPosition.y)
