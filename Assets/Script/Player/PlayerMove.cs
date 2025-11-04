@@ -95,8 +95,8 @@ public class PlayerMove : MonoBehaviour
     private void OnAttack(Transform enemy)
     {
         // Enemy Die
-        //PlantFactory plantFactory = enemy.GetComponent<PlantFactory>();
-        //plantFactory.OnDamaged();
+        EnemyPlant plant = enemy.GetComponent<EnemyPlant>();
+        plant.OnDamaged();
     }
 
     // InputSystem

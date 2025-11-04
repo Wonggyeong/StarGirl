@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class EnemyPlant : MonoBehaviour, IEnemy
 {
+    // TODO : 공격, 죽음, 
     [SerializeField] private Animator m_Ani;
     [SerializeField] private Rigidbody2D m_Rigid;
+    [SerializeField] private BoxCollider2D m_Collider;
     [SerializeField] private SpriteRenderer m_sprite;
 
     [SerializeField] private PlayerMove m_PlayerMove; // player와의 거리를 구하기 위해
@@ -25,6 +27,11 @@ public class EnemyPlant : MonoBehaviour, IEnemy
     public void OnAttack()
     {
         Debug.Log("풀 몬스터 공격!");
+    }
+
+    public void OnDie()
+    {
+
     }
 
     public void PlayerApprochSensor() // 다른 몬스터에게도 있어야함 다르게? 같이?
@@ -54,21 +61,30 @@ public class EnemyPlant : MonoBehaviour, IEnemy
             m_isAttack = false;
 
         CommonFuction.SetBool(m_Ani, "isAttack", m_isAttack);
+        CommonFuction.SetBool(m_Ani, "isDead", false);
     }
 
     public void OnDamaged()
     {
-        m_sprite.color = new Color(1, 1, 1, 0.4f);
-        //sprite Flip y
-        m_sprite.flipY = true;
-        //collider Disable
+        bool activeState = this.gameObject.activeSelf;
+        Debug.Log($"OnDamaged 진입 후 activeState : {activeState}");
 
-        Invoke("DeActive", 5);
+        m_sprite.color = new Color(1, 1, 1, 0.4f);
+
+        m_Collider.enabled = false;
+        // ani
+        CommonFuction.SetBool(m_Ani, "isDead", true);
     }
 
     private void DeActive()
     {
+        // 다시 활성화할 때 초기화 해주는게 더 나을까?
+        m_Collider.enabled = true;
+        CommonFuction.SetBool(m_Ani, "isDead", false);
         this.gameObject.SetActive(false);
+        bool activeState = this.gameObject.activeSelf;
+        Debug.Log($"DeActive 진입 후 activeState : {activeState}");
     }
 
+    
 }

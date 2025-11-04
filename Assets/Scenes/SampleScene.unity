@@ -1007,7 +1007,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantFactory: {fileID: 1315826356}
   m_PlantCount: 3
-  _EnemyPlant: {fileID: 1633394650}
 --- !u!4 &1315826362
 Transform:
   m_ObjectHideFlags: 0
@@ -1158,7 +1157,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 2.2}
+  m_Size: {x: 1.5, y: 2.2}
   m_EdgeRadius: 0
 --- !u!95 &1633394646
 Animator:
@@ -1223,6 +1222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Ani: {fileID: 1633394646}
   m_Rigid: {fileID: 1633394649}
+  m_Collider: {fileID: 1633394645}
   m_sprite: {fileID: 1633394643}
   m_PlayerMove: {fileID: 701971047}
 --- !u!1660057539 &9223372036854775807

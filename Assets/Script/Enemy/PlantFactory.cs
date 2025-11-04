@@ -15,6 +15,7 @@ public class PlantFactory : AbsEnemyFactory
         //var plant = new EnemyPlant();
         //return plant;
 
+
         var plantScript = newPlant.GetComponent<EnemyPlant>();
 
         return plantScript;
