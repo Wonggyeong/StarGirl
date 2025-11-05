@@ -12,9 +12,13 @@ public interface IEnemy
     public GameObject gameObject { get;} // 몬스터 오브젝트 활성화 상태 알기 위함
     void OnAttack();
 
-    void OnDie();
+    void OnDamaged();
+
+    void Respawn();
 
     void PlayerApprochSensor();
+
+    
 }
 
 

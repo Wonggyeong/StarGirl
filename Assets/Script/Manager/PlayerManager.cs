@@ -21,6 +21,7 @@ public class PlayerManager : Singleton<PlayerManager>
         playerMove.StopWalkSpeed();
         playerMove.DirectionSprite();
         playerMove.WalkAni();
+        playerMove.EnemyRay();
     }
 
     private void FixedUpdate()

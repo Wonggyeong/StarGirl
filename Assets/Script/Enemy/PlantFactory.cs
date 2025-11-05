@@ -15,9 +15,13 @@ public class PlantFactory : AbsEnemyFactory
         //var plant = new EnemyPlant();
         //return plant;
 
-
         var plantScript = newPlant.GetComponent<EnemyPlant>();
 
         return plantScript;
+    }
+
+    public void OffOriginPlantPrefab()
+    {
+        m_OriginPlantPrefab.SetActive(false);
     }
 }

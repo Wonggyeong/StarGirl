@@ -85,7 +85,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5
+  - time: 0.33333334
     functionName: DeActive
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 55d894fadef8b4d4ba5dbee452cc082e, type: 3}

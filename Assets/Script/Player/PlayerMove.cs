@@ -78,17 +78,42 @@ public class PlayerMove : MonoBehaviour
     }
 
     #endregion
-
+    // GetComponentÁ¦°Å ¹× Ãæµ¹ Ã¼Å©.... => ray·Î "LayerMask.GetMask("Enemy")?"
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {   // Attack
-            var enemyPosition = collision.transform.position;
-            if (m_Rigid.linearVelocity.y < 0 && this.transform.position.y > enemyPosition.y)
-            {
-                OnAttack(collision.transform);
-            }
+        //if (collision.gameObject.CompareTag("Enemy"))
+        //{   // Attack
+        //    var enemyPosition = collision.transform.position;
+        //    if (m_Rigid.linearVelocity.y < 0 && this.transform.position.y > enemyPosition.y)
+        //    {
+        //        OnAttack(collision.transform);
+        //    }
+        //}
+    }
+
+    public void EnemyRay()
+    {
+        Debug.DrawRay(m_Rigid.position, Vector3.down, Color.green);
+        RaycastHit2D rayHit = Physics2D.Raycast(m_Rigid.position, Vector3.down, 1, LayerMask.GetMask("Enemy"));
+
+        if (rayHit && m_Rigid.linearVelocity.y < -1)
+        {
+            Debug.Log($"rayHit : {rayHit}");
+            TestAttack(rayHit.transform);
+        }
+    }
+
+    private void TestAttack(Transform transform)
+    {
+        var enemy = EnemyManager.Instance.enemyList;
+
+        foreach (var item in enemy)
+        {
+            bool find = (item.gameObject.transform == transform);
+
+            if (find)
+                item.OnDamaged();
         }
     }
 
@@ -97,21 +122,22 @@ public class PlayerMove : MonoBehaviour
         // Enemy Die
         EnemyPlant plant = enemy.GetComponent<EnemyPlant>();
         plant.OnDamaged();
+        
     }
 
     // InputSystem
-    public void OnWalk(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("ÇÃ·¹ÀÌ¾î°¡ °È´Â´Ù");
-        }
+    //public void OnWalk(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        Debug.Log("ÇÃ·¹ÀÌ¾î°¡ °È´Â´Ù");
+    //    }
 
-        if (context.canceled)
-        {
-            Debug.Log("¸ØÃè´Ù");
-        }
+    //    if (context.canceled)
+    //    {
+    //        Debug.Log("¸ØÃè´Ù");
+    //    }
 
-    }
+    //}
     
 }

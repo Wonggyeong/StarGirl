@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class EnemyPlant : MonoBehaviour, IEnemy
     [SerializeField] private Animator m_Ani;
     [SerializeField] private Rigidbody2D m_Rigid;
     [SerializeField] private BoxCollider2D m_Collider;
-    [SerializeField] private SpriteRenderer m_sprite;
+    [SerializeField] private SpriteRenderer m_Sprite;
 
     [SerializeField] private PlayerMove m_PlayerMove; // player와의 거리를 구하기 위해
 
@@ -29,20 +30,15 @@ public class EnemyPlant : MonoBehaviour, IEnemy
         Debug.Log("풀 몬스터 공격!");
     }
 
-    public void OnDie()
-    {
-
-    }
-
     public void PlayerApprochSensor() // 다른 몬스터에게도 있어야함 다르게? 같이?
     {
         var playerPos = m_PlayerMove.m_Rigid.position;
         var monsterPos = m_Rigid.position;
 
         if (playerPos.x < monsterPos.x)
-            m_sprite.flipX = false; // 플레이어가 왼쪽
+            m_Sprite.flipX = false; // 플레이어가 왼쪽
         else
-            m_sprite.flipX = true; // 플레이어가 오른쪽
+            m_Sprite.flipX = true; // 플레이어가 오른쪽
 
         float distance = Vector2.Distance(playerPos, monsterPos);
         //Debug.Log($"거리 : {distance}"); // 3 이하일 때 공격 모션 , 2.3이하일 때 공격 유효타
@@ -69,22 +65,30 @@ public class EnemyPlant : MonoBehaviour, IEnemy
         bool activeState = this.gameObject.activeSelf;
         Debug.Log($"OnDamaged 진입 후 activeState : {activeState}");
 
-        m_sprite.color = new Color(1, 1, 1, 0.4f);
+        m_Sprite.color = new Color(1, 1, 1, 0.4f);
 
         m_Collider.enabled = false;
         // ani
         CommonFuction.SetBool(m_Ani, "isDead", true);
     }
 
-    private void DeActive()
+    private void DeActive() // ani Event로 사용중
     {
-        // 다시 활성화할 때 초기화 해주는게 더 나을까?
-        m_Collider.enabled = true;
-        CommonFuction.SetBool(m_Ani, "isDead", false);
         this.gameObject.SetActive(false);
+
         bool activeState = this.gameObject.activeSelf;
         Debug.Log($"DeActive 진입 후 activeState : {activeState}");
     }
 
-    
+    public void Respawn()
+    {
+        // 상태 초기화
+        m_Collider.enabled = true;
+        m_Sprite.color = Color.white;
+        m_Sprite.flipY = false;
+
+        CommonFuction.SetBool(m_Ani, "isDead", false);
+
+        gameObject.SetActive(true);
+    }
 }

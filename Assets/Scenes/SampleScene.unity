@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 1633394645}
   - component: {fileID: 1633394649}
   - component: {fileID: 1633394650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Ani: {fileID: 1633394646}
   m_Rigid: {fileID: 1633394649}
   m_Collider: {fileID: 1633394645}
-  m_sprite: {fileID: 1633394643}
+  m_Sprite: {fileID: 1633394643}
   m_PlayerMove: {fileID: 701971047}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
