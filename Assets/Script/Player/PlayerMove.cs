@@ -71,6 +71,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+
+
     public void DirectionSprite()
     {
         if (Input.GetButton("Horizontal"))
@@ -79,19 +81,6 @@ public class PlayerMove : MonoBehaviour
 
     #endregion
     // GetComponent제거 및 충돌 체크.... => ray로 "LayerMask.GetMask("Enemy")?"
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.gameObject.CompareTag("Enemy"))
-        //{   // Attack
-        //    var enemyPosition = collision.transform.position;
-        //    if (m_Rigid.linearVelocity.y < 0 && this.transform.position.y > enemyPosition.y)
-        //    {
-        //        OnAttack(collision.transform);
-        //    }
-        //}
-    }
-
     public void EnemyRay()
     {
         Debug.DrawRay(m_Rigid.position, Vector3.down, Color.green);
@@ -100,30 +89,23 @@ public class PlayerMove : MonoBehaviour
         if (rayHit && m_Rigid.linearVelocity.y < -1)
         {
             Debug.Log($"rayHit : {rayHit}");
-            TestAttack(rayHit.transform);
+            OnAttack(rayHit.transform);
         }
     }
 
-    private void TestAttack(Transform transform)
+    private void OnAttack(Transform transform)
     {
-        var enemy = EnemyManager.Instance.enemyList;
+        var enemyList = EnemyManager.Instance.enemyList;
 
-        foreach (var item in enemy)
+        foreach (var enemy in enemyList)
         {
-            bool find = (item.gameObject.transform == transform);
+            bool find = (enemy.gameObject.transform == transform);
 
             if (find)
-                item.OnDamaged();
+                enemy.OnDamaged();
         }
     }
 
-    private void OnAttack(Transform enemy)
-    {
-        // Enemy Die
-        EnemyPlant plant = enemy.GetComponent<EnemyPlant>();
-        plant.OnDamaged();
-        
-    }
 
     // InputSystem
     //public void OnWalk(InputAction.CallbackContext context)

@@ -12,7 +12,6 @@ public class EnemyPlant : MonoBehaviour, IEnemy
 
     [SerializeField] private PlayerMove m_PlayerMove; // player와의 거리를 구하기 위해
 
-    //private EnemyType m_EnemyType = EnemyType.Plant;
     private bool m_isAttack = false;
 
     private void FixedUpdate()
@@ -30,7 +29,7 @@ public class EnemyPlant : MonoBehaviour, IEnemy
         Debug.Log("풀 몬스터 공격!");
     }
 
-    public void PlayerApprochSensor() // 다른 몬스터에게도 있어야함 다르게? 같이?
+    public void PlayerApprochSensor()
     {
         var playerPos = m_PlayerMove.m_Rigid.position;
         var monsterPos = m_Rigid.position;
@@ -82,7 +81,6 @@ public class EnemyPlant : MonoBehaviour, IEnemy
 
     public void Respawn()
     {
-        // 상태 초기화
         m_Collider.enabled = true;
         m_Sprite.color = Color.white;
         m_Sprite.flipY = false;

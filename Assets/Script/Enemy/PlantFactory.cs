@@ -11,10 +11,6 @@ public class PlantFactory : AbsEnemyFactory
     public override IEnemy CreateEnemy()
     {
         GameObject newPlant = Instantiate(m_OriginPlantPrefab, spawnPoint.position, Quaternion.identity);
-        //var plantScript = newPlant.GetComponent<EnemyPlant>();
-        //var plant = new EnemyPlant();
-        //return plant;
-
         var plantScript = newPlant.GetComponent<EnemyPlant>();
 
         return plantScript;
