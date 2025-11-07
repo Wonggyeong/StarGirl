@@ -12,6 +12,8 @@ public class EnemyPlant : MonoBehaviour, IEnemy
 
     [SerializeField] private PlayerMove m_PlayerMove; // player와의 거리를 구하기 위해
 
+    [SerializeField] private RespawnSystem m_RespawnSystem;
+
     private bool m_isAttack = false;
 
     private void FixedUpdate()
@@ -87,6 +89,7 @@ public class EnemyPlant : MonoBehaviour, IEnemy
 
         CommonFuction.SetBool(m_Ani, "isDead", false);
 
+        //m_Rigid.position = m_RespawnSystem.GetRespawnPosition(m_Rigid.position);
         gameObject.SetActive(true);
     }
 }

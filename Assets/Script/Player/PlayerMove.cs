@@ -106,7 +106,12 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    private void OnDamaged(Vector2 targetPos)
+    {
+        // 게임 매니저에서 UI 목숨 깎임
 
+        m_SpriteRenderer.color = new Color(1, 1, 1, 0.4f);
+    }
     // InputSystem
     //public void OnWalk(InputAction.CallbackContext context)
     //{

@@ -591,7 +591,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OriginPlantPrefab: {fileID: 1633394642}
-  spawnPoint: {fileID: 1315826362}
+  xRange: {x: -5, y: 5}
 --- !u!114 &1315826357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,6 +1036,7 @@ GameObject:
   - component: {fileID: 1633394645}
   - component: {fileID: 1633394649}
   - component: {fileID: 1633394650}
+  - component: {fileID: 1633394651}
   m_Layer: 7
   m_Name: Plant
   m_TagString: Enemy
@@ -1207,7 +1208,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1633394650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,6 +1226,21 @@ MonoBehaviour:
   m_Collider: {fileID: 1633394645}
   m_Sprite: {fileID: 1633394643}
   m_PlayerMove: {fileID: 701971047}
+  m_RespawnSystem: {fileID: 1633394651}
+--- !u!114 &1633394651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633394642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54d0ec37f926db4290564db809828fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Platform: {fileID: 312515740}
+  m_SpawnRange: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
